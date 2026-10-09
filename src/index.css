@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-turmeric: #F3C928;
+  --color-turmeric-light: #FDE888;
+  --color-turmeric-dark: #D3A713;
+  --color-mustard: #D9AC18;
+  --color-mustard-dark: #C29712;
+  --color-mustard-light: #F2CA47;
+  --color-cream: #FFF8E9;
+  --color-cream-card: #FFFFFF;
+  --color-cream-subtle: #FAF2E0;
+  --color-wood: #68472F;
+  --color-wood-light: #8A6143;
+  --color-wood-dark: #4A3220;
+  --color-herb: #466044;
+  --color-herb-light: #5B7A58;
+  --color-herb-dark: #334832;
+  --color-charcoal: #25241F;
+  --color-charcoal-muted: #58554D;
+  --color-charcoal-light: #8B877E;
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+}
+
+/* Subtle hairline borders matching warm cream tone */
+.hairline-border {
+  border-color: rgba(104, 71, 47, 0.12);
+}
+
+.hairline-border-subtle {
+  border-color: rgba(104, 71, 47, 0.08);
+}
+
+/* Premium dark walnut wood texture for recipe cards */
+.bg-walnut-wood {
+  background-color: #281914;
+  background-image:
+    /* Fine subtle horizontal wood grain fibers */
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.016) 0px,
+      rgba(255, 255, 255, 0.016) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    /* Soft wider timber grain bands */
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.08) 0px,
+      rgba(0, 0, 0, 0.08) 6px,
+      rgba(255, 255, 255, 0.01) 6px,
+      rgba(255, 255, 255, 0.01) 18px
+    ),
+    /* Subtle horizontal natural streak variation */
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(255, 255, 255, 0.02) 20%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(255, 255, 255, 0.025) 80%,
+      rgba(0, 0, 0, 0.14) 100%
+    ),
+    /* Polished walnut depth gradient */
+    linear-gradient(
+      180deg,
+      #35231B 0%,
+      #2B1A14 35%,
+      #251712 100%
+    );
+  background-blend-mode: overlay, soft-light, overlay, normal;
+}

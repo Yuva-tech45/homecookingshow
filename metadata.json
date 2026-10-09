@@ -1,0 +1,6 @@
+{
+  "name": "HomeCookingShow",
+  "description": "An unofficial fan-made project inspired by HomeCookingShow videos. Discover comforting Indian home recipes, plan hearty weekly meals, and cook along with confidence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

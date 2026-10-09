@@ -1,0 +1,94 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User account profile document",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "displayName": { "type": "string", "maxLength": 128 },
+        "photoURL": { "type": "string", "maxLength": 1024 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["userId", "email", "createdAt"]
+    },
+    "SavedRecipe": {
+      "title": "SavedRecipe",
+      "description": "Recipe saved to user kitchen collection",
+      "type": "object",
+      "properties": {
+        "recipeId": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 128 },
+        "category": { "type": "string", "maxLength": 64 },
+        "savedAt": { "type": "string", "maxLength": 64 },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["recipeId", "title", "userId"]
+    },
+    "MealPlanEntry": {
+      "title": "MealPlanEntry",
+      "description": "Planned meal on user's weekly calendar",
+      "type": "object",
+      "properties": {
+        "day": { "type": "string", "maxLength": 32 },
+        "mealType": { "type": "string", "enum": ["breakfast", "lunch", "dinner"] },
+        "recipeTitle": { "type": "string", "maxLength": 128 },
+        "updatedAt": { "type": "string", "maxLength": 64 },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["day", "mealType", "recipeTitle", "userId"]
+    },
+    "GroceryItemDoc": {
+      "title": "GroceryItemDoc",
+      "description": "Grocery checklist item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "category": { "type": "string", "maxLength": 64 },
+        "checked": { "type": "boolean" },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["name", "checked", "userId"]
+    },
+    "CommunityStoryDoc": {
+      "title": "CommunityStoryDoc",
+      "description": "Community kitchen story or tip",
+      "type": "object",
+      "properties": {
+        "author": { "type": "string", "maxLength": 128 },
+        "location": { "type": "string", "maxLength": 128 },
+        "recipeName": { "type": "string", "maxLength": 128 },
+        "content": { "type": "string", "maxLength": 2048 },
+        "timestamp": { "type": "string", "maxLength": 64 },
+        "likes": { "type": "number" },
+        "category": { "type": "string", "maxLength": 64 },
+        "userId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["author", "recipeName", "content", "category", "userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document"
+    },
+    "/users/{userId}/savedRecipes/{recipeId}": {
+      "schema": "SavedRecipe",
+      "description": "Recipes saved by the user"
+    },
+    "/users/{userId}/mealPlan/{planId}": {
+      "schema": "MealPlanEntry",
+      "description": "User weekly meal schedule"
+    },
+    "/users/{userId}/groceries/{itemId}": {
+      "schema": "GroceryItemDoc",
+      "description": "User grocery checklist items"
+    },
+    "/communityStories/{storyId}": {
+      "schema": "CommunityStoryDoc",
+      "description": "Public community recipes and memories"
+    }
+  }
+}
